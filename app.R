@@ -112,8 +112,8 @@ server <- function(input, output, session) {
   #physeq_16S load this as pre-computed object merged with user-input data
   criteria <- list() ## create a set of subsetting criteria based on user input
   subsetted_data <- subset_samples(physeq_16S, criteria)
-  output$panel2 <- plot_taxonomy(subsetted_data, taxrank)
-  output$panel3 <- plot_ordination(subsetted_data)
+  output$panel2 <- renderPlot({plot_taxonomy(subsetted_data, taxrank)})
+  output$panel3 <- renderPlot({plot_ordination(subsetted_data)})
 }
 
 shinyApp(ui, server)
