@@ -1,5 +1,8 @@
 library(shiny)
 
+## contains physeq_16S; a phyloseq object with count table, metadata, and taxonomy information bundled together
+load('reference_data.RData')
+
 subset_samples <- function(physeq_16S, criteria) {
   ## create new set of samples for plotting based on interactive selection criteria
   subset_samples(physeq_16S, sample_type == "TissueSlurry" | sample_type == "Mucus" | sample_type == "TissueSlurry_Skleton" |
@@ -17,7 +20,7 @@ plot_map <- function() {
     )
 }
 
-plot_taxonomy <- function(ps, taxrank) {
+plot_taxonomy <- function(ps) {
   ## generate plot for panel 2
   sum_ps <- ps  %>%
     tax_glom(taxrank = "Family") %>%
@@ -108,11 +111,13 @@ ui <- fluidPage(
 ))
 
 server <- function(input, output, session) {
-  #taxrank load this as pre-computed object merged with user-input data
-  #physeq_16S load this as pre-computed object merged with user-input data
+  input$user_sequences <- {} ## upload fastq
+  input$user_disease_binary <- {} ## upload csv
+  user_phyloseq <- phyloseq()
+  merged_data <- merge_phyloseq(physeq_16S,user_phyloseq)
   criteria <- list() ## create a set of subsetting criteria based on user input
-  subsetted_data <- subset_samples(physeq_16S, criteria)
-  output$panel2 <- renderPlot({plot_taxonomy(subsetted_data, taxrank)})
+  subsetted_data <- subset_samples(merged_data, criteria)
+  output$panel2 <- renderPlot({plot_taxonomy(subsetted_data)})
   output$panel3 <- renderPlot({plot_ordination(subsetted_data)})
 }
 
