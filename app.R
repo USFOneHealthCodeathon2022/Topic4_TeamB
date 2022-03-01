@@ -1,4 +1,6 @@
 library(shiny)
+library(leaflet)
+library(phyloseq)
 
 ## contains physeq_16S; a phyloseq object with count table, metadata, and taxonomy information bundled together
 load('reference_data.RData')
@@ -9,22 +11,24 @@ subset_samples <- function(physeq_16S, criteria) {
                    sample_type=="Seawater" | sample_type=="Sediment")
 }
 
-plot_map <- function() {
+plot_map <- function(ps) {
   ## generate plot for panel 1
   ## https://rstudio.github.io/leaflet/shiny.html
   leaflet() %>%
     addCircleMarkers(
-      data = map_click(),
+      data = sample_data(ps),
       lat = ~latitude,
       lng = ~longitude
     )
+  ##data = map_click(),
+  
 }
 
 plot_taxonomy <- function(ps) {
   ## generate plot for panel 2
   sum_ps <- ps  %>%
     tax_glom(taxrank = "Family") %>%
-    transform_sample_counts(function(x) {x/sum(x)} ) %>% # Transform to rel. abundance
+    transform_sample_counts(function(x) {x/sum(x)}) %>% # Transform to rel. abundance
     psmelt()
   
   sum_ps$tissue_type <- factor(sum_ps$tissue_type, 
