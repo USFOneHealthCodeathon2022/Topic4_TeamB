@@ -1,17 +1,14 @@
-#library(shiny)
-#library(leaflet)
-
-## on button click, gather input selection criteria, use it to subset the data, and regenerate these plots in the various panels
+library(shiny)
 
 subset_samples <- function(physeq_16S, criteria) {
-## create new set of samples for plotting based on interactive selection criteria
+  ## create new set of samples for plotting based on interactive selection criteria
   subset_samples(physeq_16S, sample_type == "TissueSlurry" | sample_type == "Mucus" | sample_type == "TissueSlurry_Skleton" |
                    sample_type=="Seawater" | sample_type=="Sediment")
 }
 
 plot_map <- function() {
-## generate plot for panel 1
-## https://rstudio.github.io/leaflet/shiny.html
+  ## generate plot for panel 1
+  ## https://rstudio.github.io/leaflet/shiny.html
   leaflet() %>%
     addCircleMarkers(
       data = map_click(),
@@ -21,7 +18,7 @@ plot_map <- function() {
 }
 
 plot_taxonomy <- function(ps, taxrank) {
-## generate plot for panel 2
+  ## generate plot for panel 2
   sum_ps <- ps  %>%
     tax_glom(taxrank = "Family") %>%
     transform_sample_counts(function(x) {x/sum(x)} ) %>% # Transform to rel. abundance
@@ -47,7 +44,7 @@ plot_taxonomy <- function(ps, taxrank) {
 }
 
 plot_ordination <- function(ps) {
-## generate plot for panel 3
+  ## generate plot for panel 3
   ps_clr <- microbiome::transform(ps, 'clr')
   psr_clr.ord <- ordinate(ps_clr, "RDA", "euclidean")
   plot_ordination(ps_clr, psr_clr.ord,
@@ -68,8 +65,55 @@ plot_ordination <- function(ps) {
 }
 
 plot_boxes <- function() {
-## generate plot for panel 4
+  ## generate plot for panel 4
   
-
+  
 }
-  
+
+
+# increase max R-Shiny user-input file size from 5 to 30 MB
+options(shiny.maxRequestSize = 30 * 1024 ^ 2)
+
+# define fonts for plot
+f1 <- list(family = "Arial, sans-serif",
+           size = 24,
+           color = "black")
+
+f2 <- list(family = "Arial, sans-serif",
+           size = 20,
+           color = "black")
+
+f3 <- list(family = "Arial, sans-serif",
+           size = 16,
+           color = "black")
+
+# set plot margins
+m <- list(
+  l = 20,
+  r = 20,
+  b = 10,
+  t = 100,
+  pad = 4
+)
+
+# the ui object has all the information for the user-interface
+ui <- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      plotOutput("panel2")
+    ),
+    mainPanel(
+      plotOutput("panel3")
+    )
+))
+
+server <- function(input, output, session) {
+  #taxrank load this as pre-computed object merged with user-input data
+  #physeq_16S load this as pre-computed object merged with user-input data
+  criteria <- list() ## create a set of subsetting criteria based on user input
+  subsetted_data <- subset_samples(physeq_16S, criteria)
+  output$panel2 <- plot_taxonomy(subsetted_data, taxrank)
+  output$panel3 <- plot_ordination(subsetted_data)
+}
+
+shinyApp(ui, server)

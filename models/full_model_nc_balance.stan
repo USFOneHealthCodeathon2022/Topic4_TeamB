@@ -34,6 +34,7 @@ transformed parameters {
   for(s in 1:NS) {
     for(n in 1:N_nodes) {
       // start at tips and work toward root
+      // not quite right because higher nodes have deterministic effects
       balances[idx_descendants[n,1]:idx_descendants[n,2],s] = balances[idx_descendants[n,1]:idx_descendants[n,2],s] - log_sum_exp(balances[idx_descendants[n,1]:idx_descendants[n,2],s]);
     }
   }
