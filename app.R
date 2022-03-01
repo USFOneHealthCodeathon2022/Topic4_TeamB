@@ -101,24 +101,29 @@ m <- list(
 
 # the ui object has all the information for the user-interface
 ui <- fluidPage(
-  sidebarLayout(
-    sidebarPanel(
-      plotOutput("panel2")
-    ),
-    mainPanel(
-      plotOutput("panel3")
-    )
-))
+  fixedRow(), ## user input area
+  fixedRow(
+    column(6,plotOutput("panel1")),
+    column(6,plotOutput("panel2"))
+  ),
+  fixedRow(
+    column(6,plotOutput("panel3")),
+    column(6,plotOutput("panel4"))
+  )
+)
 
 server <- function(input, output, session) {
   input$user_sequences <- {} ## upload fastq
   input$user_disease_binary <- {} ## upload csv
-  user_phyloseq <- phyloseq()
+  user_phyloseq <- phyloseq(otu_table(dada2(input$user_sequences), taxa_are_rows= T), 
+                            sample_data(input$user_disease_binary))
   merged_data <- merge_phyloseq(physeq_16S,user_phyloseq)
+  output$panel1 <- renderLeaflet({plot_map(merged_data)})
   criteria <- list() ## create a set of subsetting criteria based on user input
   subsetted_data <- subset_samples(merged_data, criteria)
   output$panel2 <- renderPlot({plot_taxonomy(subsetted_data)})
   output$panel3 <- renderPlot({plot_ordination(subsetted_data)})
+  output$panel4 <- renderPlot({plot_boxes(subsetted_data)})
 }
 
 shinyApp(ui, server)
