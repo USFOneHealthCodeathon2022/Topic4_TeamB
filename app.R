@@ -1,6 +1,7 @@
 library(shiny)
 library(leaflet)
 library(phyloseq)
+library(dada2)
 
 ## contains physeq_16S; a phyloseq object with count table, metadata, and taxonomy information bundled together
 load('reference_data.RData')
@@ -105,7 +106,16 @@ m <- list(
 
 # the ui object has all the information for the user-interface
 ui <- fluidPage(
-  fixedRow(), ## user input area
+  fixedRow(
+    fileInput("user_fwd", "Upload merged fastqs",
+              multiple = FALSE,
+              accept = ".fastq"),
+    fileInput("user_disease", "Upload disease annotations",
+              multiple = FALSE,
+              accept = c("text/csv",
+                         "text/comma-separated-values,text/plain",
+                         ".csv"))
+  ), ## user input area
   fixedRow(
     column(6,plotOutput("panel1")),
     column(6,plotOutput("panel2"))
@@ -117,10 +127,10 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  input$user_sequences <- {} ## upload fastq
-  input$user_disease_binary <- {} ## upload csv
-  user_phyloseq <- phyloseq(otu_table(dada2(input$user_sequences), taxa_are_rows= T), 
-                            sample_data(input$user_disease_binary))
+  ## needs something reactive so parts of the code are only run AFTER file upload
+  user_counts <- makeSequenceTable(dada(input$user_reads$datapath, pool='pseudo'))
+  user_phyloseq <- phyloseq(otu_table(user_counts, taxa_are_rows = T), 
+                            sample_data(read.table(input$user_disease_binary$datapath)))
   merged_data <- merge_phyloseq(physeq_16S,user_phyloseq)
   output$panel1 <- renderLeaflet({plot_map(merged_data)})
   criteria <- list() ## create a set of subsetting criteria based on user input
