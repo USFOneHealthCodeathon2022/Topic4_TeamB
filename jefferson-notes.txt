@@ -1,4 +1,0 @@
-Learn R and Shiny
-	*options would be nice
-	*one scatterplot for data as practice and interactive
-	*toggle stuff for different data sets available
