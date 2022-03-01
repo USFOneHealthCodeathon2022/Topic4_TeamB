@@ -80,7 +80,7 @@ plot_boxes <- function() {
 
 
 # increase max R-Shiny user-input file size from 5 to 30 MB
-options(shiny.maxRequestSize = 30 * 1024 ^ 2)
+options(shiny.maxRequestSize = 3 * 1024 ^ 3)
 
 # define fonts for plot
 f1 <- list(family = "Arial, sans-serif",
@@ -107,9 +107,9 @@ m <- list(
 # the ui object has all the information for the user-interface
 ui <- fluidPage(
   fixedRow(
-    fileInput("user_fwd", "Upload merged fastqs",
+    fileInput("user_reads", "Upload merged fastqs",
               multiple = FALSE,
-              accept = ".fastq"),
+              accept = c("*.fastq","*.fastq.gz")),
     fileInput("user_disease", "Upload disease annotations",
               multiple = FALSE,
               accept = c("text/csv",
@@ -128,16 +128,18 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   ## needs something reactive so parts of the code are only run AFTER file upload
-  user_counts <- makeSequenceTable(dada(input$user_reads$datapath, pool='pseudo'))
-  user_phyloseq <- phyloseq(otu_table(user_counts, taxa_are_rows = T), 
-                            sample_data(read.table(input$user_disease_binary$datapath)))
-  merged_data <- merge_phyloseq(physeq_16S,user_phyloseq)
-  output$panel1 <- renderLeaflet({plot_map(merged_data)})
-  criteria <- list() ## create a set of subsetting criteria based on user input
-  subsetted_data <- subset_samples(merged_data, criteria)
-  output$panel2 <- renderPlot({plot_taxonomy(subsetted_data)})
-  output$panel3 <- renderPlot({plot_ordination(subsetted_data)})
-  output$panel4 <- renderPlot({plot_boxes(subsetted_data)})
+  observeEvent(input$user_disease, {
+    user_counts <- makeSequenceTable(dada(input$user_reads$datapath, pool='pseudo', selfConsist=TRUE, err=NULL))
+    user_phyloseq <- phyloseq(otu_table(user_counts, taxa_are_rows = T), 
+                              sample_data(read.table(input$user_disease_binary$datapath)))
+    merged_data <- merge_phyloseq(physeq_16S,user_phyloseq)
+    output$panel1 <- renderLeaflet({plot_map(merged_data)})
+    criteria <- list() ## create a set of subsetting criteria based on user input
+    subsetted_data <- subset_samples(merged_data, criteria)
+    output$panel2 <- renderPlot({plot_taxonomy(subsetted_data)})
+    output$panel3 <- renderPlot({plot_ordination(subsetted_data)})
+    output$panel4 <- renderPlot({plot_boxes(subsetted_data)})
+  })
 }
 
 shinyApp(ui, server)
