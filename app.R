@@ -131,7 +131,7 @@ server <- function(input, output, session) {
   observeEvent(input$user_disease, {
     user_counts <- makeSequenceTable(dada(input$user_reads$datapath, pool='pseudo', selfConsist=TRUE, err=NULL))
     user_phyloseq <- phyloseq(otu_table(user_counts, taxa_are_rows = T), 
-                              sample_data(read.table(input$user_disease_binary$datapath)))
+                              sample_data(read.table(input$user_disease$datapath)))
     merged_data <- merge_phyloseq(physeq_16S,user_phyloseq)
     output$panel1 <- renderLeaflet({plot_map(merged_data)})
     criteria <- list() ## create a set of subsetting criteria based on user input
