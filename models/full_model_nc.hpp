@@ -8,59 +8,214 @@ using namespace stan::math;
 
 
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 50> locations_array__ = 
+static constexpr std::array<const char*, 94> locations_array__ = 
 {" (found before start of program)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 11, column 2 to column 23)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 12, column 2 to column 23)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 13, column 2 to column 23)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 14, column 2 to column 19)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 15, column 2 to column 20)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 16, column 2 to column 24)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 17, column 2 to column 19)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 20, column 2 to column 59)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 21, column 2 to column 61)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 22, column 2 to column 54)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 23, column 2 to column 61)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 24, column 2 to column 56)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 25, column 2 to column 58)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 26, column 2 to column 57)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 29, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 29, column 12 to column 14)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 29, column 2 to column 100)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 30, column 2 to column 24)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 31, column 2 to column 24)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 32, column 2 to column 24)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 33, column 2 to column 23)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 34, column 2 to column 24)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 35, column 2 to column 36)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 36, column 2 to column 22)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 38, column 4 to column 57)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 37, column 17 to line 39, column 3)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 37, column 2 to line 39, column 3)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 2, column 2 to column 9)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 3, column 2 to column 9)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 4, column 13 to column 15)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 4, column 2 to column 25)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 5, column 2 to column 26)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 6, column 2 to column 16)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 7, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 7, column 12 to column 14)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 7, column 2 to column 26)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 8, column 8 to column 10)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 8, column 11 to column 13)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 8, column 2 to column 26)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 14, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 15, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 16, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 16, column 12 to column 14)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 23, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 23, column 12 to column 14)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 24, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 25, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 26, column 9 to column 11)",
- " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 26, column 12 to column 14)"};
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 43, column 2 to column 23)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 44, column 2 to column 23)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 45, column 2 to column 23)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 46, column 2 to column 33)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 47, column 2 to column 20)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 48, column 2 to column 20)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 49, column 2 to column 19)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 50, column 2 to column 20)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 51, column 2 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 52, column 2 to column 19)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 53, column 2 to column 30)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 56, column 2 to column 59)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 57, column 2 to column 56)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 58, column 2 to column 54)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 59, column 2 to column 77)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 60, column 2 to column 62)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 61, column 2 to column 62)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 62, column 2 to column 56)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 63, column 2 to column 58)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 64, column 2 to column 57)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 67, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 67, column 12 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 67, column 2 to column 86)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 68, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 68, column 12 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 68, column 2 to column 130)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 69, column 2 to column 34)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 70, column 2 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 71, column 2 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 72, column 2 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 73, column 2 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 74, column 2 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 75, column 2 to column 23)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 76, column 2 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 77, column 2 to column 36)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 78, column 2 to column 22)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 79, column 2 to column 95)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 18, column 2 to column 9)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 19, column 2 to column 9)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 20, column 13 to column 15)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 20, column 2 to column 25)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 21, column 2 to column 26)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 22, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 22, column 12 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 22, column 2 to column 26)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 23, column 8 to column 10)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 23, column 11 to column 13)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 23, column 2 to column 26)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 26, column 8 to column 13)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 26, column 2 to column 51)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 27, column 2 to column 36)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 28, column 8 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 28, column 2 to column 23)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 29, column 8 to column 20)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 29, column 2 to column 30)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 30, column 2 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 31, column 2 to column 15)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 37, column 10 to column 24)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 38, column 10 to column 20)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 36, column 13 to line 39, column 7)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 34, column 10 to column 22)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 35, column 10 to column 19)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 33, column 28 to line 36, column 7)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 33, column 6 to line 39, column 7)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 32, column 30 to line 40, column 3)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 32, column 2 to line 40, column 3)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 47, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 48, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 49, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 50, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 51, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 51, column 12 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 53, column 13 to column 15)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 59, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 59, column 12 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 60, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 61, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 62, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 63, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 64, column 9 to column 11)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 64, column 12 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 3, column 4 to column 15)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 5, column 8 to column 26)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 4, column 4 to line 5, column 26)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 6, column 4 to column 14)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 2, column 31 to line 7, column 3)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 9, column 11 to column 18)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 9, column 4 to column 44)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 10, column 4 to column 65)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 11, column 4 to line 13, column 5)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 12, column 6 to column 68)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 14, column 4 to column 15)",
+ " (in '/Users/Ryan/scripts/Topic4_TeamB/models/full_model_nc.stan', line 8, column 84 to line 15, column 3)"};
 
+struct zip_lpmf_functor__ {
+  template <bool propto__, typename T1__, typename T2__,
+            stan::require_col_vector_t<T1__>* = nullptr,
+            stan::require_col_vector_t<T2__>* = nullptr>
+  stan::promote_args_t<stan::value_type_t<T1__>, stan::value_type_t<T2__>>
+  operator()(const std::vector<int>& c, const T1__& p, const T2__& a,
+             const std::vector<int>& i0, const std::vector<int>& in0,
+             std::ostream* pstream__) const;
+};
+struct num_zeros_functor__ {
+  int
+  operator()(const std::vector<int>& y, std::ostream* pstream__) const;
+};
 
+int num_zeros(const std::vector<int>& y, std::ostream* pstream__) {
+    using local_scalar_t__ = double;
+    int current_statement__ = 0; 
+    static constexpr bool propto__ = true;
+    (void) propto__;
+    local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+    (void) DUMMY_VAR__;  // suppress unused var warning
+    try {
+      int nz = std::numeric_limits<int>::min();
+      current_statement__ = 82;
+      nz = 0;
+      current_statement__ = 84;
+      for (int n = 1; n <= stan::math::size(y); ++n) {
+        current_statement__ = 83;
+        nz = (nz +
+               stan::math::logical_eq(
+                 stan::model::rvalue(y, "y", stan::model::index_uni(n)), 0));
+      }
+      current_statement__ = 85;
+      return nz;
+    } catch (const std::exception& e) {
+      stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+    }
+    }
+template <bool propto__, typename T1__, typename T2__,
+          stan::require_col_vector_t<T1__>* = nullptr,
+          stan::require_col_vector_t<T2__>* = nullptr>
+  stan::promote_args_t<stan::value_type_t<T1__>, stan::value_type_t<T2__>>
+  zip_lpmf(const std::vector<int>& c, const T1__& p_arg__,
+           const T2__& a_arg__, const std::vector<int>& i0,
+           const std::vector<int>& in0, std::ostream* pstream__) {
+    using local_scalar_t__ =
+            stan::promote_args_t<stan::value_type_t<T1__>,
+                                 stan::value_type_t<T2__>>;
+    int current_statement__ = 0; 
+    const auto& p = stan::math::to_ref(p_arg__);
+    const auto& a = stan::math::to_ref(a_arg__);
+    local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+    (void) DUMMY_VAR__;  // suppress unused var warning
+    try {
+      current_statement__ = 87;
+      stan::math::validate_non_negative_index("lilp", "size(p)",
+                                              stan::math::size(p));
+      Eigen::Matrix<local_scalar_t__, -1, 1> lilp =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(
+           stan::math::size(p), DUMMY_VAR__);
+      current_statement__ = 88;
+      stan::model::assign(lilp, stan::math::log_inv_logit(p),
+        "assigning variable lilp");
+      local_scalar_t__ lp = DUMMY_VAR__;
+      current_statement__ = 89;
+      lp = (stan::math::sum(
+              stan::model::rvalue(lilp, "lilp",
+                stan::model::index_multi(in0))) +
+             stan::math::poisson_log_lpmf<false>(
+               stan::model::rvalue(c, "c", stan::model::index_multi(in0)),
+               stan::model::rvalue(a, "a", stan::model::index_multi(in0))));
+      current_statement__ = 90;
+      for (int sym1__ = 1; sym1__ <= stan::math::size(i0); ++sym1__) {
+        {
+          int i;
+          current_statement__ = 90;
+          i = i0[(sym1__ - 1)];
+          current_statement__ = 91;
+          lp = (lp +
+                 stan::math::log_sum_exp(
+                   stan::math::log1m_inv_logit(
+                     stan::model::rvalue(p, "p", stan::model::index_uni(i))),
+                   (stan::model::rvalue(lilp, "lilp",
+                      stan::model::index_uni(i)) -
+                     stan::math::exp(
+                       stan::model::rvalue(a, "a", stan::model::index_uni(i))))));
+        }
+      }
+      current_statement__ = 92;
+      return lp;
+    } catch (const std::exception& e) {
+      stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+    }
+    }
+template <bool propto__, typename T1__, typename T2__,
+          stan::require_col_vector_t<T1__>*,
+          stan::require_col_vector_t<T2__>*>
+stan::promote_args_t<stan::value_type_t<T1__>, stan::value_type_t<T2__>>
+zip_lpmf_functor__::operator()(const std::vector<int>& c, const T1__& p,
+                               const T2__& a, const std::vector<int>& i0,
+                               const std::vector<int>& in0,
+                               std::ostream* pstream__)  const
+{
+  return zip_lpmf<propto__>(c, p, a, i0, in0, pstream__);
+}
+
+int
+num_zeros_functor__::operator()(const std::vector<int>& y,
+                                std::ostream* pstream__)  const
+{
+  return num_zeros(y, pstream__);
+}
 
 
 class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
@@ -70,9 +225,14 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
   int NS;
   Eigen::Matrix<double, 1, -1> disease__;
   double global_scale_prior;
-  double ou_prior;
   Eigen::Matrix<double, -1, -1> phy_dists__;
-  std::vector<std::vector<int>> counts; 
+  std::vector<std::vector<int>> counts;
+  std::vector<int> counts_1d;
+  int N_zero;
+  std::vector<int> i0;
+  std::vector<int> in0;
+  int i0i;
+  int in0i; 
   Eigen::Map<Eigen::Matrix<double, 1, -1>> disease{nullptr, 0};
   Eigen::Map<Eigen::Matrix<double, -1, -1>> phy_dists{nullptr, 0, 0};
  
@@ -101,25 +261,25 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
     try {
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
-      current_statement__ = 28;
+      current_statement__ = 38;
       context__.validate_dims("data initialization","NF","int",
            std::vector<size_t>{});
       NF = std::numeric_limits<int>::min();
       
       
-      current_statement__ = 28;
+      current_statement__ = 38;
       NF = context__.vals_i("NF")[(1 - 1)];
-      current_statement__ = 29;
+      current_statement__ = 39;
       context__.validate_dims("data initialization","NS","int",
            std::vector<size_t>{});
       NS = std::numeric_limits<int>::min();
       
       
-      current_statement__ = 29;
+      current_statement__ = 39;
       NS = context__.vals_i("NS")[(1 - 1)];
-      current_statement__ = 30;
+      current_statement__ = 40;
       stan::math::validate_non_negative_index("disease", "NS", NS);
-      current_statement__ = 31;
+      current_statement__ = 41;
       context__.validate_dims("data initialization","disease","double",
            std::vector<size_t>{static_cast<size_t>(NS)});
       disease__ = 
@@ -130,40 +290,32 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       
       {
         std::vector<local_scalar_t__> disease_flat__;
-        current_statement__ = 31;
+        current_statement__ = 41;
         disease_flat__ = context__.vals_r("disease");
-        current_statement__ = 31;
+        current_statement__ = 41;
         pos__ = 1;
-        current_statement__ = 31;
+        current_statement__ = 41;
         for (int sym1__ = 1; sym1__ <= NS; ++sym1__) {
-          current_statement__ = 31;
+          current_statement__ = 41;
           stan::model::assign(disease, disease_flat__[(pos__ - 1)],
             "assigning variable disease", stan::model::index_uni(sym1__));
-          current_statement__ = 31;
+          current_statement__ = 41;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 32;
+      current_statement__ = 42;
       context__.validate_dims("data initialization","global_scale_prior",
           "double", std::vector<size_t>{});
       global_scale_prior = std::numeric_limits<double>::quiet_NaN();
       
       
-      current_statement__ = 32;
+      current_statement__ = 42;
       global_scale_prior = context__.vals_r("global_scale_prior")[(1 - 1)];
-      current_statement__ = 33;
-      context__.validate_dims("data initialization","ou_prior","double",
-           std::vector<size_t>{});
-      ou_prior = std::numeric_limits<double>::quiet_NaN();
-      
-      
-      current_statement__ = 33;
-      ou_prior = context__.vals_r("ou_prior")[(1 - 1)];
-      current_statement__ = 34;
+      current_statement__ = 43;
       stan::math::validate_non_negative_index("phy_dists", "NF", NF);
-      current_statement__ = 35;
+      current_statement__ = 44;
       stan::math::validate_non_negative_index("phy_dists", "NF", NF);
-      current_statement__ = 36;
+      current_statement__ = 45;
       context__.validate_dims("data initialization","phy_dists","double",
            std::vector<size_t>{static_cast<size_t>(NF),
             static_cast<size_t>(NF)});
@@ -175,28 +327,28 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       
       {
         std::vector<local_scalar_t__> phy_dists_flat__;
-        current_statement__ = 36;
+        current_statement__ = 45;
         phy_dists_flat__ = context__.vals_r("phy_dists");
-        current_statement__ = 36;
+        current_statement__ = 45;
         pos__ = 1;
-        current_statement__ = 36;
+        current_statement__ = 45;
         for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
-          current_statement__ = 36;
+          current_statement__ = 45;
           for (int sym2__ = 1; sym2__ <= NF; ++sym2__) {
-            current_statement__ = 36;
+            current_statement__ = 45;
             stan::model::assign(phy_dists, phy_dists_flat__[(pos__ - 1)],
               "assigning variable phy_dists", stan::model::index_uni(sym2__),
                                                 stan::model::index_uni(sym1__));
-            current_statement__ = 36;
+            current_statement__ = 45;
             pos__ = (pos__ + 1);
           }
         }
       }
-      current_statement__ = 37;
+      current_statement__ = 46;
       stan::math::validate_non_negative_index("counts", "NS", NS);
-      current_statement__ = 38;
+      current_statement__ = 47;
       stan::math::validate_non_negative_index("counts", "NF", NF);
-      current_statement__ = 39;
+      current_statement__ = 48;
       context__.validate_dims("data initialization","counts","int",
            std::vector<size_t>{static_cast<size_t>(NS),
             static_cast<size_t>(NF)});
@@ -207,47 +359,120 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       
       {
         std::vector<int> counts_flat__;
-        current_statement__ = 39;
+        current_statement__ = 48;
         counts_flat__ = context__.vals_i("counts");
-        current_statement__ = 39;
+        current_statement__ = 48;
         pos__ = 1;
-        current_statement__ = 39;
+        current_statement__ = 48;
         for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
-          current_statement__ = 39;
+          current_statement__ = 48;
           for (int sym2__ = 1; sym2__ <= NS; ++sym2__) {
-            current_statement__ = 39;
+            current_statement__ = 48;
             stan::model::assign(counts, counts_flat__[(pos__ - 1)],
               "assigning variable counts", stan::model::index_uni(sym2__),
                                              stan::model::index_uni(sym1__));
-            current_statement__ = 39;
+            current_statement__ = 48;
             pos__ = (pos__ + 1);
           }
         }
       }
-      current_statement__ = 40;
-      stan::math::validate_non_negative_index("i_raw", "NF", NF);
-      current_statement__ = 41;
-      stan::math::validate_non_negative_index("db_raw", "NF", NF);
-      current_statement__ = 42;
-      stan::math::validate_non_negative_index("res_raw", "NF", NF);
-      current_statement__ = 43;
-      stan::math::validate_non_negative_index("res_raw", "NS", NS);
-      current_statement__ = 44;
-      stan::math::validate_non_negative_index("L", "NF", NF);
-      current_statement__ = 45;
-      stan::math::validate_non_negative_index("L", "NF", NF);
-      current_statement__ = 46;
-      stan::math::validate_non_negative_index("intercepts", "NF", NF);
-      current_statement__ = 47;
-      stan::math::validate_non_negative_index("disease_betas", "NF", NF);
-      current_statement__ = 48;
-      stan::math::validate_non_negative_index("residuals", "NF", NF);
       current_statement__ = 49;
+      stan::math::validate_non_negative_index("counts_1d", "NF * NS",
+                                              (NF * NS));
+      current_statement__ = 50;
+      counts_1d = 
+        std::vector<int>((NF * NS), std::numeric_limits<int>::min());
+      
+      
+      current_statement__ = 50;
+      stan::model::assign(counts_1d, stan::math::to_array_1d(counts),
+        "assigning variable counts_1d");
+      current_statement__ = 51;
+      N_zero = std::numeric_limits<int>::min();
+      
+      
+      current_statement__ = 51;
+      N_zero = num_zeros(counts_1d, pstream__);
+      current_statement__ = 52;
+      stan::math::validate_non_negative_index("i0", "N_zero", N_zero);
+      current_statement__ = 53;
+      i0 = std::vector<int>(N_zero, std::numeric_limits<int>::min());
+      
+      
+      current_statement__ = 54;
+      stan::math::validate_non_negative_index("in0", "NF * NS - N_zero",
+                                              ((NF * NS) - N_zero));
+      current_statement__ = 55;
+      in0 = 
+        std::vector<int>(((NF * NS) - N_zero), 
+          std::numeric_limits<int>::min());
+      
+      
+      current_statement__ = 56;
+      i0i = std::numeric_limits<int>::min();
+      
+      
+      current_statement__ = 56;
+      i0i = 1;
+      current_statement__ = 57;
+      in0i = std::numeric_limits<int>::min();
+      
+      
+      current_statement__ = 57;
+      in0i = 1;
+      current_statement__ = 66;
+      for (int c = 1; c <= stan::math::size(counts_1d); ++c) {
+        current_statement__ = 64;
+        if (stan::math::logical_eq(
+              stan::model::rvalue(counts_1d, "counts_1d",
+                stan::model::index_uni(c)), 0)) {
+          current_statement__ = 61;
+          stan::model::assign(i0, c,
+            "assigning variable i0", stan::model::index_uni(i0i));
+          current_statement__ = 62;
+          i0i = (i0i + 1);
+        } else {
+          current_statement__ = 58;
+          stan::model::assign(in0, c,
+            "assigning variable in0", stan::model::index_uni(in0i));
+          current_statement__ = 59;
+          in0i = (in0i + 1);
+        }
+      }
+      current_statement__ = 67;
+      stan::math::validate_non_negative_index("ip_raw", "NF", NF);
+      current_statement__ = 68;
+      stan::math::validate_non_negative_index("dp_raw", "NF", NF);
+      current_statement__ = 69;
+      stan::math::validate_non_negative_index("i_raw", "NF", NF);
+      current_statement__ = 70;
+      stan::math::validate_non_negative_index("db_raw", "NF", NF);
+      current_statement__ = 71;
+      stan::math::validate_non_negative_index("res_raw", "NF", NF);
+      current_statement__ = 72;
+      stan::math::validate_non_negative_index("res_raw", "NS", NS);
+      current_statement__ = 73;
+      stan::math::validate_non_negative_index("size_factors", "NS", NS);
+      current_statement__ = 74;
+      stan::math::validate_non_negative_index("L", "NF", NF);
+      current_statement__ = 75;
+      stan::math::validate_non_negative_index("L", "NF", NF);
+      current_statement__ = 76;
+      stan::math::validate_non_negative_index("prevalence_int", "NF", NF);
+      current_statement__ = 77;
+      stan::math::validate_non_negative_index("prevalence_dis", "NF", NF);
+      current_statement__ = 78;
+      stan::math::validate_non_negative_index("intercepts", "NF", NF);
+      current_statement__ = 79;
+      stan::math::validate_non_negative_index("disease_betas", "NF", NF);
+      current_statement__ = 80;
+      stan::math::validate_non_negative_index("residuals", "NF", NF);
+      current_statement__ = 81;
       stan::math::validate_non_negative_index("residuals", "NS", NS);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
-    num_params_r__ = 1 + 1 + 1 + NF + NF + (NF * NS) + 1;
+    num_params_r__ = 1 + 1 + 1 + 1 + NF + NF + NF + NF + (NF * NS) + 1 + NS;
     
   }
   
@@ -281,110 +506,157 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       current_statement__ = 3;
       ds_raw = in__.template read_constrain_lb<local_scalar_t__, jacobian__>(
                  0, lp__);
+      local_scalar_t__ prevalence_scale = DUMMY_VAR__;
+      current_statement__ = 4;
+      prevalence_scale = in__.template read_constrain_lb<local_scalar_t__, 
+                           jacobian__>(0, lp__);
+      Eigen::Matrix<local_scalar_t__, -1, 1> ip_raw =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
+      current_statement__ = 5;
+      ip_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
+      Eigen::Matrix<local_scalar_t__, -1, 1> dp_raw =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
+      current_statement__ = 6;
+      dp_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
       Eigen::Matrix<local_scalar_t__, -1, 1> i_raw =
          Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
-      current_statement__ = 4;
+      current_statement__ = 7;
       i_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
       Eigen::Matrix<local_scalar_t__, -1, 1> db_raw =
          Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
-      current_statement__ = 5;
+      current_statement__ = 8;
       db_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
       Eigen::Matrix<local_scalar_t__, -1, -1> res_raw =
          Eigen::Matrix<local_scalar_t__, -1, -1>::Constant(NF, NS,
            DUMMY_VAR__);
-      current_statement__ = 6;
+      current_statement__ = 9;
       res_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, -1>>(
                   NF, NS);
       local_scalar_t__ ou = DUMMY_VAR__;
-      current_statement__ = 7;
+      current_statement__ = 10;
       ou = in__.template read_constrain_lb<local_scalar_t__, jacobian__>(0,
              lp__);
+      Eigen::Matrix<local_scalar_t__, 1, -1> size_factors =
+         Eigen::Matrix<local_scalar_t__, 1, -1>::Constant(NS, DUMMY_VAR__);
+      current_statement__ = 11;
+      size_factors = in__.template read<
+                       Eigen::Matrix<local_scalar_t__, 1, -1>>(NS);
       local_scalar_t__ global_scale = DUMMY_VAR__;
-      current_statement__ = 8;
+      current_statement__ = 12;
       global_scale = (global_scale_prior * gs_raw);
       local_scalar_t__ intercept_scale = DUMMY_VAR__;
-      current_statement__ = 9;
-      intercept_scale = ((10 * global_scale) * is_raw);
+      current_statement__ = 13;
+      intercept_scale = (global_scale * is_raw);
       local_scalar_t__ disease_scale = DUMMY_VAR__;
-      current_statement__ = 10;
+      current_statement__ = 14;
       disease_scale = (global_scale * ds_raw);
       Eigen::Matrix<local_scalar_t__, -1, -1> L =
          Eigen::Matrix<local_scalar_t__, -1, -1>::Constant(NF, NF,
            DUMMY_VAR__);
-      current_statement__ = 11;
+      current_statement__ = 15;
       stan::model::assign(L,
         stan::math::cholesky_decompose(
-          stan::math::exp(
-            stan::math::divide(stan::math::minus(phy_dists), ou))),
+          stan::math::add_diag(
+            stan::math::exp(
+              stan::math::divide(stan::math::minus(phy_dists), ou)), 1e-9)),
         "assigning variable L");
+      Eigen::Matrix<local_scalar_t__, -1, 1> prevalence_int =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
+      current_statement__ = 16;
+      stan::model::assign(prevalence_int,
+        stan::math::multiply(prevalence_scale,
+          stan::math::multiply(L, ip_raw)),
+        "assigning variable prevalence_int");
+      Eigen::Matrix<local_scalar_t__, -1, 1> prevalence_dis =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
+      current_statement__ = 17;
+      stan::model::assign(prevalence_dis,
+        stan::math::multiply(prevalence_scale,
+          stan::math::multiply(L, dp_raw)),
+        "assigning variable prevalence_dis");
       Eigen::Matrix<local_scalar_t__, -1, 1> intercepts =
          Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
-      current_statement__ = 12;
+      current_statement__ = 18;
       stan::model::assign(intercepts,
         stan::math::multiply(intercept_scale, stan::math::multiply(L, i_raw)),
         "assigning variable intercepts");
       Eigen::Matrix<local_scalar_t__, -1, 1> disease_betas =
          Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
-      current_statement__ = 13;
+      current_statement__ = 19;
       stan::model::assign(disease_betas,
         stan::math::multiply(disease_scale, stan::math::multiply(L, db_raw)),
         "assigning variable disease_betas");
       Eigen::Matrix<local_scalar_t__, -1, -1> residuals =
          Eigen::Matrix<local_scalar_t__, -1, -1>::Constant(NF, NS,
            DUMMY_VAR__);
-      current_statement__ = 14;
+      current_statement__ = 20;
       stan::model::assign(residuals,
         stan::math::multiply(global_scale, stan::math::multiply(L, res_raw)),
         "assigning variable residuals");
-      current_statement__ = 8;
+      current_statement__ = 12;
       stan::math::check_greater_or_equal(function__, "global_scale",
                                             global_scale, 0);
-      current_statement__ = 9;
+      current_statement__ = 13;
       stan::math::check_greater_or_equal(function__, "intercept_scale",
                                             intercept_scale, 0);
-      current_statement__ = 10;
+      current_statement__ = 14;
       stan::math::check_greater_or_equal(function__, "disease_scale",
                                             disease_scale, 0);
       {
-        current_statement__ = 15;
+        current_statement__ = 21;
+        stan::math::validate_non_negative_index("prevalence", "NF", NF);
+        current_statement__ = 22;
+        stan::math::validate_non_negative_index("prevalence", "NS", NS);
+        Eigen::Matrix<local_scalar_t__, -1, -1> prevalence =
+           Eigen::Matrix<local_scalar_t__, -1, -1>::Constant(NF, NS,
+             DUMMY_VAR__);
+        current_statement__ = 23;
+        stan::model::assign(prevalence,
+          stan::math::add(stan::math::rep_matrix(prevalence_int, NS),
+            stan::math::multiply(prevalence_dis, disease)),
+          "assigning variable prevalence");
+        current_statement__ = 24;
         stan::math::validate_non_negative_index("latent_abundances", "NF", NF);
-        current_statement__ = 16;
+        current_statement__ = 25;
         stan::math::validate_non_negative_index("latent_abundances", "NS", NS);
         Eigen::Matrix<local_scalar_t__, -1, -1> latent_abundances =
            Eigen::Matrix<local_scalar_t__, -1, -1>::Constant(NF, NS,
              DUMMY_VAR__);
-        current_statement__ = 17;
+        current_statement__ = 26;
         stan::model::assign(latent_abundances,
           stan::math::add(
-            stan::math::add(stan::math::rep_matrix(intercepts, NS),
+            stan::math::add(
+              stan::math::add(stan::math::rep_matrix(intercepts, NS),
+                stan::math::rep_matrix(size_factors, NF)),
               stan::math::multiply(disease_betas, disease)), residuals),
           "assigning variable latent_abundances");
-        current_statement__ = 18;
+        current_statement__ = 27;
+        lp_accum__.add(
+          stan::math::std_normal_lpdf<propto__>(prevalence_scale));
+        current_statement__ = 28;
+        lp_accum__.add(stan::math::std_normal_lpdf<propto__>(ip_raw));
+        current_statement__ = 29;
+        lp_accum__.add(stan::math::std_normal_lpdf<propto__>(dp_raw));
+        current_statement__ = 30;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(gs_raw));
-        current_statement__ = 19;
+        current_statement__ = 31;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(is_raw));
-        current_statement__ = 20;
+        current_statement__ = 32;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(ds_raw));
-        current_statement__ = 21;
+        current_statement__ = 33;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(i_raw));
-        current_statement__ = 22;
+        current_statement__ = 34;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(db_raw));
-        current_statement__ = 23;
+        current_statement__ = 35;
         lp_accum__.add(
           stan::math::std_normal_lpdf<propto__>(
             stan::math::to_vector(res_raw)));
-        current_statement__ = 24;
+        current_statement__ = 36;
         lp_accum__.add(stan::math::exponential_lpdf<propto__>(ou, 1));
-        current_statement__ = 27;
-        for (int s = 1; s <= NS; ++s) {
-          current_statement__ = 25;
-          lp_accum__.add(
-            stan::math::multinomial_logit_lpmf<propto__>(
-              stan::model::rvalue(counts, "counts",
-                stan::model::index_uni(s)),
-              stan::model::rvalue(latent_abundances, "latent_abundances",
-                stan::model::index_omni(), stan::model::index_uni(s))));
-        }
+        current_statement__ = 37;
+        lp_accum__.add(
+          zip_lpmf<false>(counts_1d, stan::math::to_vector(prevalence),
+            stan::math::to_vector(latent_abundances), i0, in0, pstream__));
       }
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -430,31 +702,57 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       current_statement__ = 3;
       ds_raw = in__.template read_constrain_lb<local_scalar_t__, jacobian__>(
                  0, lp__);
+      double prevalence_scale = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 4;
+      prevalence_scale = in__.template read_constrain_lb<local_scalar_t__, 
+                           jacobian__>(0, lp__);
+      Eigen::Matrix<double, -1, 1> ip_raw =
+         Eigen::Matrix<double, -1, 1>::Constant(NF,
+           std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 5;
+      ip_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
+      Eigen::Matrix<double, -1, 1> dp_raw =
+         Eigen::Matrix<double, -1, 1>::Constant(NF,
+           std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 6;
+      dp_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
       Eigen::Matrix<double, -1, 1> i_raw =
          Eigen::Matrix<double, -1, 1>::Constant(NF,
            std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 4;
+      current_statement__ = 7;
       i_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
       Eigen::Matrix<double, -1, 1> db_raw =
          Eigen::Matrix<double, -1, 1>::Constant(NF,
            std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 5;
+      current_statement__ = 8;
       db_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, 1>>(NF);
       Eigen::Matrix<double, -1, -1> res_raw =
          Eigen::Matrix<double, -1, -1>::Constant(NF, NS,
            std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 6;
+      current_statement__ = 9;
       res_raw = in__.template read<Eigen::Matrix<local_scalar_t__, -1, -1>>(
                   NF, NS);
       double ou = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 7;
+      current_statement__ = 10;
       ou = in__.template read_constrain_lb<local_scalar_t__, jacobian__>(0,
              lp__);
+      Eigen::Matrix<double, 1, -1> size_factors =
+         Eigen::Matrix<double, 1, -1>::Constant(NS,
+           std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 11;
+      size_factors = in__.template read<
+                       Eigen::Matrix<local_scalar_t__, 1, -1>>(NS);
       double global_scale = std::numeric_limits<double>::quiet_NaN();
       double intercept_scale = std::numeric_limits<double>::quiet_NaN();
       double disease_scale = std::numeric_limits<double>::quiet_NaN();
       Eigen::Matrix<double, -1, -1> L =
          Eigen::Matrix<double, -1, -1>::Constant(NF, NF,
+           std::numeric_limits<double>::quiet_NaN());
+      Eigen::Matrix<double, -1, 1> prevalence_int =
+         Eigen::Matrix<double, -1, 1>::Constant(NF,
+           std::numeric_limits<double>::quiet_NaN());
+      Eigen::Matrix<double, -1, 1> prevalence_dis =
+         Eigen::Matrix<double, -1, 1>::Constant(NF,
            std::numeric_limits<double>::quiet_NaN());
       Eigen::Matrix<double, -1, 1> intercepts =
          Eigen::Matrix<double, -1, 1>::Constant(NF,
@@ -468,46 +766,61 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       out__.write(gs_raw);
       out__.write(is_raw);
       out__.write(ds_raw);
+      out__.write(prevalence_scale);
+      out__.write(ip_raw);
+      out__.write(dp_raw);
       out__.write(i_raw);
       out__.write(db_raw);
       out__.write(res_raw);
       out__.write(ou);
+      out__.write(size_factors);
       if (stan::math::logical_negation((stan::math::primitive_value(
             emit_transformed_parameters__) || stan::math::primitive_value(
             emit_generated_quantities__)))) {
         return ;
       } 
-      current_statement__ = 8;
+      current_statement__ = 12;
       global_scale = (global_scale_prior * gs_raw);
-      current_statement__ = 9;
-      intercept_scale = ((10 * global_scale) * is_raw);
-      current_statement__ = 10;
+      current_statement__ = 13;
+      intercept_scale = (global_scale * is_raw);
+      current_statement__ = 14;
       disease_scale = (global_scale * ds_raw);
-      current_statement__ = 11;
+      current_statement__ = 15;
       stan::model::assign(L,
         stan::math::cholesky_decompose(
-          stan::math::exp(
-            stan::math::divide(stan::math::minus(phy_dists), ou))),
+          stan::math::add_diag(
+            stan::math::exp(
+              stan::math::divide(stan::math::minus(phy_dists), ou)), 1e-9)),
         "assigning variable L");
-      current_statement__ = 12;
+      current_statement__ = 16;
+      stan::model::assign(prevalence_int,
+        stan::math::multiply(prevalence_scale,
+          stan::math::multiply(L, ip_raw)),
+        "assigning variable prevalence_int");
+      current_statement__ = 17;
+      stan::model::assign(prevalence_dis,
+        stan::math::multiply(prevalence_scale,
+          stan::math::multiply(L, dp_raw)),
+        "assigning variable prevalence_dis");
+      current_statement__ = 18;
       stan::model::assign(intercepts,
         stan::math::multiply(intercept_scale, stan::math::multiply(L, i_raw)),
         "assigning variable intercepts");
-      current_statement__ = 13;
+      current_statement__ = 19;
       stan::model::assign(disease_betas,
         stan::math::multiply(disease_scale, stan::math::multiply(L, db_raw)),
         "assigning variable disease_betas");
-      current_statement__ = 14;
+      current_statement__ = 20;
       stan::model::assign(residuals,
         stan::math::multiply(global_scale, stan::math::multiply(L, res_raw)),
         "assigning variable residuals");
-      current_statement__ = 8;
+      current_statement__ = 12;
       stan::math::check_greater_or_equal(function__, "global_scale",
                                             global_scale, 0);
-      current_statement__ = 9;
+      current_statement__ = 13;
       stan::math::check_greater_or_equal(function__, "intercept_scale",
                                             intercept_scale, 0);
-      current_statement__ = 10;
+      current_statement__ = 14;
       stan::math::check_greater_or_equal(function__, "disease_scale",
                                             disease_scale, 0);
       if (emit_transformed_parameters__) {
@@ -515,6 +828,8 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
         out__.write(intercept_scale);
         out__.write(disease_scale);
         out__.write(L);
+        out__.write(prevalence_int);
+        out__.write(prevalence_dis);
         out__.write(intercepts);
         out__.write(disease_betas);
         out__.write(residuals);
@@ -551,6 +866,23 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       local_scalar_t__ ds_raw = DUMMY_VAR__;
       ds_raw = in__.read<local_scalar_t__>();
       out__.write_free_lb(0, ds_raw);
+      local_scalar_t__ prevalence_scale = DUMMY_VAR__;
+      prevalence_scale = in__.read<local_scalar_t__>();
+      out__.write_free_lb(0, prevalence_scale);
+      Eigen::Matrix<local_scalar_t__, -1, 1> ip_raw =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
+      for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+        stan::model::assign(ip_raw, in__.read<local_scalar_t__>(),
+          "assigning variable ip_raw", stan::model::index_uni(sym1__));
+      }
+      out__.write(ip_raw);
+      Eigen::Matrix<local_scalar_t__, -1, 1> dp_raw =
+         Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
+      for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+        stan::model::assign(dp_raw, in__.read<local_scalar_t__>(),
+          "assigning variable dp_raw", stan::model::index_uni(sym1__));
+      }
+      out__.write(dp_raw);
       Eigen::Matrix<local_scalar_t__, -1, 1> i_raw =
          Eigen::Matrix<local_scalar_t__, -1, 1>::Constant(NF, DUMMY_VAR__);
       for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
@@ -579,6 +911,13 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       local_scalar_t__ ou = DUMMY_VAR__;
       ou = in__.read<local_scalar_t__>();
       out__.write_free_lb(0, ou);
+      Eigen::Matrix<local_scalar_t__, 1, -1> size_factors =
+         Eigen::Matrix<local_scalar_t__, 1, -1>::Constant(NS, DUMMY_VAR__);
+      for (int sym1__ = 1; sym1__ <= NS; ++sym1__) {
+        stan::model::assign(size_factors, in__.read<local_scalar_t__>(),
+          "assigning variable size_factors", stan::model::index_uni(sym1__));
+      }
+      out__.write(size_factors);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
@@ -586,22 +925,29 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
     
   inline void get_param_names(std::vector<std::string>& names__) const {
     
-    names__ = std::vector<std::string>{"gs_raw", "is_raw", "ds_raw", "i_raw",
-      "db_raw", "res_raw", "ou", "global_scale", "intercept_scale",
-      "disease_scale", "L", "intercepts", "disease_betas", "residuals"};
+    names__ = std::vector<std::string>{"gs_raw", "is_raw", "ds_raw",
+      "prevalence_scale", "ip_raw", "dp_raw", "i_raw", "db_raw", "res_raw",
+      "ou", "size_factors", "global_scale", "intercept_scale",
+      "disease_scale", "L", "prevalence_int", "prevalence_dis", "intercepts",
+      "disease_betas", "residuals"};
     
     } // get_param_names() 
     
   inline void get_dims(std::vector<std::vector<size_t>>& dimss__) const {
     
     dimss__ = std::vector<std::vector<size_t>>{std::vector<size_t>{},
-      std::vector<size_t>{}, std::vector<size_t>{},
+      std::vector<size_t>{}, std::vector<size_t>{}, std::vector<size_t>{
+      }, std::vector<size_t>{static_cast<size_t>(NF)},
+      std::vector<size_t>{static_cast<size_t>(NF)},
       std::vector<size_t>{static_cast<size_t>(NF)},
       std::vector<size_t>{static_cast<size_t>(NF)},
       std::vector<size_t>{static_cast<size_t>(NF), static_cast<size_t>(NS)},
+      std::vector<size_t>{}, std::vector<size_t>{static_cast<size_t>(NS)},
       std::vector<size_t>{}, std::vector<size_t>{}, std::vector<size_t>{
-      }, std::vector<size_t>{},
+      },
       std::vector<size_t>{static_cast<size_t>(NF), static_cast<size_t>(NF)},
+      std::vector<size_t>{static_cast<size_t>(NF)},
+      std::vector<size_t>{static_cast<size_t>(NF)},
       std::vector<size_t>{static_cast<size_t>(NF)},
       std::vector<size_t>{static_cast<size_t>(NF)},
       std::vector<size_t>{static_cast<size_t>(NF), static_cast<size_t>(NS)}};
@@ -617,6 +963,17 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
     param_names__.emplace_back(std::string() + "gs_raw");
     param_names__.emplace_back(std::string() + "is_raw");
     param_names__.emplace_back(std::string() + "ds_raw");
+    param_names__.emplace_back(std::string() + "prevalence_scale");
+    for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+      {
+        param_names__.emplace_back(std::string() + "ip_raw" + '.' + std::to_string(sym1__));
+      } 
+    }
+    for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+      {
+        param_names__.emplace_back(std::string() + "dp_raw" + '.' + std::to_string(sym1__));
+      } 
+    }
     for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
       {
         param_names__.emplace_back(std::string() + "i_raw" + '.' + std::to_string(sym1__));
@@ -637,6 +994,11 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       } 
     }
     param_names__.emplace_back(std::string() + "ou");
+    for (int sym1__ = 1; sym1__ <= NS; ++sym1__) {
+      {
+        param_names__.emplace_back(std::string() + "size_factors" + '.' + std::to_string(sym1__));
+      } 
+    }
     if (emit_transformed_parameters__) {
       param_names__.emplace_back(std::string() + "global_scale");
       param_names__.emplace_back(std::string() + "intercept_scale");
@@ -648,6 +1010,16 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
               param_names__.emplace_back(std::string() + "L" + '.' + std::to_string(sym2__) + '.' + std::to_string(sym1__));
             } 
           }
+        } 
+      }
+      for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "prevalence_int" + '.' + std::to_string(sym1__));
+        } 
+      }
+      for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "prevalence_dis" + '.' + std::to_string(sym1__));
         } 
       }
       for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
@@ -686,6 +1058,17 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
     param_names__.emplace_back(std::string() + "gs_raw");
     param_names__.emplace_back(std::string() + "is_raw");
     param_names__.emplace_back(std::string() + "ds_raw");
+    param_names__.emplace_back(std::string() + "prevalence_scale");
+    for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+      {
+        param_names__.emplace_back(std::string() + "ip_raw" + '.' + std::to_string(sym1__));
+      } 
+    }
+    for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+      {
+        param_names__.emplace_back(std::string() + "dp_raw" + '.' + std::to_string(sym1__));
+      } 
+    }
     for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
       {
         param_names__.emplace_back(std::string() + "i_raw" + '.' + std::to_string(sym1__));
@@ -706,6 +1089,11 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
       } 
     }
     param_names__.emplace_back(std::string() + "ou");
+    for (int sym1__ = 1; sym1__ <= NS; ++sym1__) {
+      {
+        param_names__.emplace_back(std::string() + "size_factors" + '.' + std::to_string(sym1__));
+      } 
+    }
     if (emit_transformed_parameters__) {
       param_names__.emplace_back(std::string() + "global_scale");
       param_names__.emplace_back(std::string() + "intercept_scale");
@@ -717,6 +1105,16 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
               param_names__.emplace_back(std::string() + "L" + '.' + std::to_string(sym2__) + '.' + std::to_string(sym1__));
             } 
           }
+        } 
+      }
+      for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "prevalence_int" + '.' + std::to_string(sym1__));
+        } 
+      }
+      for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
+        {
+          param_names__.emplace_back(std::string() + "prevalence_dis" + '.' + std::to_string(sym1__));
         } 
       }
       for (int sym1__ = 1; sym1__ <= NF; ++sym1__) {
@@ -748,13 +1146,13 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
     
   inline std::string get_constrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"gs_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"is_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"ds_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"i_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"db_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"res_raw\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"parameters\"},{\"name\":\"ou\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"global_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"intercept_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"disease_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"L\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"intercepts\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"disease_betas\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"residuals\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"transformed_parameters\"}]");
+    return std::string("[{\"name\":\"gs_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"is_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"ds_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"prevalence_scale\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"ip_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"dp_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"i_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"db_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"res_raw\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"parameters\"},{\"name\":\"ou\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"size_factors\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NS) + "},\"block\":\"parameters\"},{\"name\":\"global_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"intercept_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"disease_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"L\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"prevalence_int\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"prevalence_dis\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"intercepts\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"disease_betas\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"residuals\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"transformed_parameters\"}]");
     
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     
-    return std::string("[{\"name\":\"gs_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"is_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"ds_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"i_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"db_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"res_raw\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"parameters\"},{\"name\":\"ou\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"global_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"intercept_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"disease_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"L\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"intercepts\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"disease_betas\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"residuals\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"transformed_parameters\"}]");
+    return std::string("[{\"name\":\"gs_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"is_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"ds_raw\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"prevalence_scale\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"ip_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"dp_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"i_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"db_raw\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"parameters\"},{\"name\":\"res_raw\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"parameters\"},{\"name\":\"ou\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"size_factors\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NS) + "},\"block\":\"parameters\"},{\"name\":\"global_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"intercept_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"disease_scale\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"L\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"prevalence_int\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"prevalence_dis\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"intercepts\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"disease_betas\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(NF) + "},\"block\":\"transformed_parameters\"},{\"name\":\"residuals\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(NF) + ",\"cols\":" + std::to_string(NS) + "},\"block\":\"transformed_parameters\"}]");
     
     } // get_unconstrained_sizedtypes() 
     
@@ -768,9 +1166,9 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
                             const bool emit_generated_quantities = true,
                             std::ostream* pstream = nullptr) const {
       const size_t num_params__ = 
-  ((((((1 + 1) + 1) + NF) + NF) + (NF * NS)) + 1);
+  ((((((((((1 + 1) + 1) + 1) + NF) + NF) + NF) + NF) + (NF * NS)) + 1) + NS);
       const size_t num_transformed = 
-  ((((((1 + 1) + 1) + (NF * NF)) + NF) + NF) + (NF * NS));
+  ((((((((1 + 1) + 1) + (NF * NF)) + NF) + NF) + NF) + NF) + (NF * NS));
       const size_t num_gen_quantities = 0;
       std::vector<double> vars_vec(num_params__
        + (emit_transformed_parameters * num_transformed)
@@ -790,9 +1188,9 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
                             bool emit_generated_quantities = true,
                             std::ostream* pstream = nullptr) const {
       const size_t num_params__ = 
-  ((((((1 + 1) + 1) + NF) + NF) + (NF * NS)) + 1);
+  ((((((((((1 + 1) + 1) + 1) + NF) + NF) + NF) + NF) + (NF * NS)) + 1) + NS);
       const size_t num_transformed = 
-  ((((((1 + 1) + 1) + (NF * NF)) + NF) + NF) + (NF * NS));
+  ((((((((1 + 1) + 1) + (NF * NF)) + NF) + NF) + NF) + NF) + (NF * NS));
       const size_t num_gen_quantities = 0;
       vars.resize(num_params__
         + (emit_transformed_parameters * num_transformed)
@@ -829,10 +1227,11 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
                               std::vector<int>& params_i,
                               std::vector<double>& vars,
                               std::ostream* pstream__ = nullptr) const {
-     constexpr std::array<const char*, 7> names__{"gs_raw", "is_raw",
-      "ds_raw", "i_raw", "db_raw", "res_raw", "ou"};
-      const std::array<Eigen::Index, 7> constrain_param_sizes__{1, 1, 
-       1, NF, NF, (NF * NS), 1};
+     constexpr std::array<const char*, 11> names__{"gs_raw", "is_raw",
+      "ds_raw", "prevalence_scale", "ip_raw", "dp_raw", "i_raw", "db_raw",
+      "res_raw", "ou", "size_factors"};
+      const std::array<Eigen::Index, 11> constrain_param_sizes__{1, 1, 
+       1, 1, NF, NF, NF, NF, (NF * NS), 1, NS};
       const auto num_constrained_params__ = std::accumulate(
         constrain_param_sizes__.begin(), constrain_param_sizes__.end(), 0);
     
@@ -850,9 +1249,7 @@ class full_model_nc_model final : public model_base_crtp<full_model_nc_model> {
      vars.resize(num_params_r__);
      transform_inits_impl(params_r_flat__, params_i, vars, pstream__);
     } // transform_inits() 
-    
-};
-}
+     }; } 
 using stan_model = full_model_nc_model_namespace::full_model_nc_model;
 
 #ifndef USING_R

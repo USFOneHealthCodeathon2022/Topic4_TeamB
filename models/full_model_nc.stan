@@ -18,9 +18,9 @@ parameters {
 }
 transformed parameters {
   real<lower=0> global_scale = global_scale_prior * gs_raw;
-  real<lower=0> intercept_scale = 10 * global_scale * is_raw;
+  real<lower=0> intercept_scale = global_scale * is_raw;
   real<lower=0> disease_scale = global_scale * ds_raw;
-  matrix[NF,NF] L = cholesky_decompose(exp(-phy_dists / ou));
+  matrix[NF,NF] L = cholesky_decompose(add_diag(exp(-phy_dists / ou), 1e-9));
   vector[NF] intercepts = intercept_scale * (L * i_raw);
   vector[NF] disease_betas = disease_scale * (L * db_raw);
   matrix[NF,NS] residuals = global_scale * (L * res_raw);
