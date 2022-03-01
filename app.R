@@ -127,7 +127,6 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  ## needs something reactive so parts of the code are only run AFTER file upload
   observeEvent(input$user_disease, {
     user_counts <- makeSequenceTable(dada(input$user_reads$datapath, pool='pseudo', selfConsist=TRUE, err=NULL))
     user_phyloseq <- phyloseq(otu_table(user_counts, taxa_are_rows = T), 
