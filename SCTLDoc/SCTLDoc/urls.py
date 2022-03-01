@@ -13,7 +13,7 @@ urlpatterns = [
     # Examples:
     # url(r'^blog/', include('blog.urls', namespace='blog')),
     # provide the most basic login/logout functionality
-	path('', include('charts.urls')),
+    path("", include("charts.urls")),
     url(
         r"^login/$",
         auth_views.LoginView.as_view(template_name="core/login.html"),
