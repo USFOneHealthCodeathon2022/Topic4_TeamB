@@ -1,4 +1,10 @@
 library(shiny)
+library(leaflet)
+library(phyloseq)
+library(dada2)
+
+## contains physeq_16S; a phyloseq object with count table, metadata, and taxonomy information bundled together
+load('reference_data.RData')
 
 subset_samples <- function(physeq_16S, criteria) {
   ## create new set of samples for plotting based on interactive selection criteria
@@ -6,22 +12,24 @@ subset_samples <- function(physeq_16S, criteria) {
                    sample_type=="Seawater" | sample_type=="Sediment")
 }
 
-plot_map <- function() {
+plot_map <- function(ps) {
   ## generate plot for panel 1
   ## https://rstudio.github.io/leaflet/shiny.html
   leaflet() %>%
     addCircleMarkers(
-      data = map_click(),
+      data = sample_data(ps),
       lat = ~latitude,
       lng = ~longitude
     )
+  ##data = map_click(),
+  
 }
 
-plot_taxonomy <- function(ps, taxrank) {
+plot_taxonomy <- function(ps) {
   ## generate plot for panel 2
   sum_ps <- ps  %>%
     tax_glom(taxrank = "Family") %>%
-    transform_sample_counts(function(x) {x/sum(x)} ) %>% # Transform to rel. abundance
+    transform_sample_counts(function(x) {x/sum(x)}) %>% # Transform to rel. abundance
     psmelt()
   
   sum_ps$tissue_type <- factor(sum_ps$tissue_type, 
@@ -72,7 +80,7 @@ plot_boxes <- function() {
 
 
 # increase max R-Shiny user-input file size from 5 to 30 MB
-options(shiny.maxRequestSize = 30 * 1024 ^ 2)
+options(shiny.maxRequestSize = 3 * 1024 ^ 3)
 
 # define fonts for plot
 f1 <- list(family = "Arial, sans-serif",
@@ -98,22 +106,39 @@ m <- list(
 
 # the ui object has all the information for the user-interface
 ui <- fluidPage(
-  sidebarLayout(
-    sidebarPanel(
-      plotOutput("panel2")
-    ),
-    mainPanel(
-      plotOutput("panel3")
-    )
-))
+  fixedRow(
+    fileInput("user_reads", "Upload merged fastqs",
+              multiple = FALSE,
+              accept = c("*.fastq","*.fastq.gz")),
+    fileInput("user_disease", "Upload disease annotations",
+              multiple = FALSE,
+              accept = c("text/csv",
+                         "text/comma-separated-values,text/plain",
+                         ".csv"))
+  ), ## user input area
+  fixedRow(
+    column(6,plotOutput("panel1")),
+    column(6,plotOutput("panel2"))
+  ),
+  fixedRow(
+    column(6,plotOutput("panel3")),
+    column(6,plotOutput("panel4"))
+  )
+)
 
 server <- function(input, output, session) {
-  #taxrank load this as pre-computed object merged with user-input data
-  #physeq_16S load this as pre-computed object merged with user-input data
-  criteria <- list() ## create a set of subsetting criteria based on user input
-  subsetted_data <- subset_samples(physeq_16S, criteria)
-  output$panel2 <- renderPlot({plot_taxonomy(subsetted_data, taxrank)})
-  output$panel3 <- renderPlot({plot_ordination(subsetted_data)})
+  observeEvent(input$user_disease, {
+    user_counts <- makeSequenceTable(dada(input$user_reads$datapath, pool='pseudo', selfConsist=TRUE, err=NULL))
+    user_phyloseq <- phyloseq(otu_table(user_counts, taxa_are_rows = T), 
+                              sample_data(read.table(input$user_disease$datapath)))
+    merged_data <- merge_phyloseq(physeq_16S,user_phyloseq)
+    output$panel1 <- renderLeaflet({plot_map(merged_data)})
+    criteria <- list() ## create a set of subsetting criteria based on user input
+    subsetted_data <- subset_samples(merged_data, criteria)
+    output$panel2 <- renderPlot({plot_taxonomy(subsetted_data)})
+    output$panel3 <- renderPlot({plot_ordination(subsetted_data)})
+    output$panel4 <- renderPlot({plot_boxes(subsetted_data)})
+  })
 }
 
 shinyApp(ui, server)
