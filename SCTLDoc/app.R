@@ -1,7 +1,7 @@
 library(shiny)
 library(leaflet)
 library(phyloseq)
-library(dada2)
+#library(dada2)
 
 ## contains physeq_16S; a phyloseq object with count table, metadata, and taxonomy information bundled together
 load('reference_data.RData')
