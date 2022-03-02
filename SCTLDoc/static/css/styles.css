@@ -1,0 +1,86 @@
+body {
+    font-family: 'Open Sans', sans-serif, arial;
+}
+
+#main-navbar .navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+#main-navbar {
+    background: #00442f;
+    border-bottom: 1rem solid #327052; 
+}
+
+.card {
+    min-width: 240px;
+}
+
+.card-header {
+    color: #e8ea18;
+    background: #006747;
+    border-bottom: .5rem solid #327052; 
+    font-weight: bold;
+}
+
+.card-body {
+    background: #efeff0;
+    font-weight: bold;
+    color: #006747;
+}
+
+#fizz-score-box {
+    background: lightgray;
+    border: 2px solid #327052;
+}
+
+.btn-primary {
+    background: #006747;
+    border: 2px solid #327052;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: #006747;
+    border: 2px solid #e8ea18;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-primary:focus {
+    box-shadow: none !important;
+}
+
+.btn-primary:active {
+    background: #005238 !important;
+    border: 2px solid #327052 !important;
+    color: #e8ea18;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: white;
+    text-decoration: underline; 
+    font-weight: 600;
+}
+
+.map-container-7{
+	overflow:hidden;
+	padding-bottom:56.25%;
+	position:relative;
+	height:0;
+}
+
+.map-container-7 iframe{
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	position:absolute;
+}

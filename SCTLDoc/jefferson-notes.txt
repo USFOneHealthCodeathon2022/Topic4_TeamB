@@ -1,0 +1,12 @@
+Learn R and Shiny
+	*options would be nice
+	*one scatterplot for data as practice and interactive
+	*toggle stuff for different data sets available
+
+Hosting website that uses django with R shiny apps
+	*install anaconda: https://docs.anaconda.com/anaconda/install/
+	*https://pythonistaplanet.com/how-to-create-a-django-project-in-anaconda-very-easily/
+	*used this to get styles.css to work https://stackoverflow.com/questions/61932470/css-file-not-found-django-project
+	*making the pages https://djangoforbeginners.com/pages-app/
+	*creating r environment using conda https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/
+	*update with shiny server and django https://github.com/ksmeeks0001/django-serve-shiny
