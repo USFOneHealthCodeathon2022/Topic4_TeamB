@@ -5,7 +5,7 @@ library(dada2)
 library(microbiome)
 library(ggplot2)
 
-## contains physeq_16S; a phyloseq object with count table, metadata, and taxonomy information bundled together
+## contains ps; a phyloseq object with count table, metadata, and taxonomy information bundled together
 load('reference_data.RData')
 
 custom_subset_samples <- function(physeq_16S, criteria) {
